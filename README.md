@@ -52,7 +52,7 @@ A GPU (NVIDIA A100 was used) is recommended. Text generation scripts need `OPENA
 3. Run the baseline scripts. Their per-seed outputs are aggregated into mean ± standard deviation tables.
 4. Run the evaluation scripts on the unseen-generator and attacked sets, and the demo for the Integrated Gradients example.
 
-Thresholds: selected by maximizing F1 on the validation split; document threshold grid 0.40–0.60 and sentence threshold grid 0.05–0.95 (step 0.01) for the proposed method.
+Thresholds: selected by maximizing F1 on the validation split; the same grid of 0.40–0.60 (step 0.01) is used for every detector; the sentence-level head of the proposed method uses 0.05–0.95.
 
 ## Baseline configurations
 
@@ -64,12 +64,12 @@ Thresholds: selected by maximizing F1 on the validation split; document threshol
 | XLNet | xlnet-base-cased | Same as BERT | F1, grid 0.40–0.60 |
 | DistilBERT | distilbert-base-cased | Same as BERT | F1, grid 0.40–0.60 |
 | DeBERTa-v3 | microsoft/deberta-v3-base | Same as BERT | F1, grid 0.40–0.60 |
-| GLTR | GPT-2 (124M) | Token-rank features per document; logistic regression | F1, grid 0.05–0.95 |
-| Fast-DetectGPT | GPT-2-XL (1.5B) | Conditional-probability curvature score; logistic regression | F1, grid 0.05–0.95 |
-| Ghostbuster | GPT-2 (weak), GPT-2-medium (strong) | Token-probability features; L1 logistic-regression feature selection; final L2 logistic regression (C = 1) | F1, grid 0.05–0.95 |
-| Stylometric | 31 hand-crafted features | Standardized features; six classifiers with default scikit-learn settings; SVM reported | SVM: fixed 0.50 (random forest: grid 0.05–0.95) |
-| Bi-LSTM + Attention | Part-of-speech tag sequences | Embedding 32; Conv1D (128 filters, width 3) with max pooling; Bi-LSTM (64 units); additive attention; dense head, dropout 0.3 | F1, grid 0.05–0.95 |
-| WaveDetect | Qwen2.5-0.5B (surrogate LM) | Surrogate LM jointly fine-tuned with a wavelet convolutional classifier | F1, grid 0.05–0.95 |
+| GLTR | GPT-2 (124M) | Token-rank features per document; logistic regression | F1, grid 0.40–0.60 |
+| Fast-DetectGPT | GPT-2-XL (1.5B) | Conditional-probability curvature score; logistic regression | F1, grid 0.40–0.60 |
+| Ghostbuster | GPT-2 (weak), GPT-2-medium (strong) | Token-probability features; L1 logistic-regression feature selection; final L2 logistic regression (C = 1) | F1, grid 0.40–0.60 |
+| Stylometric | 31 hand-crafted features | Standardized features; six classifiers with default scikit-learn settings; SVM reported | F1, grid 0.40–0.60 |
+| Bi-LSTM + Attention | Part-of-speech tag sequences | Embedding 32; Conv1D (128 filters, width 3) with max pooling; Bi-LSTM (64 units); additive attention; dense head, dropout 0.3 | F1, grid 0.40–0.60 |
+| WaveDetect | Qwen2.5-0.5B (surrogate LM) | Surrogate LM jointly fine-tuned with a wavelet convolutional classifier | F1, grid 0.40–0.60 |
 | Proposed method | microsoft/deberta-v3-base | Section 4.7 and Table 4 | F1, grid 0.40–0.60 |
 
 ## Evaluation sets
