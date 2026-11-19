@@ -1,0 +1,26 @@
+# Packages imported by the code in this repository (proposed method, baselines, evaluation).
+# Versions are intentionally NOT pinned here: pin them with the exact versions used for the
+# reported results by running the snippet in the README ("Environment") on the training machine.
+# Hardware used: NVIDIA A100 GPU, Google Colab.
+torch
+transformers
+datasets
+sentencepiece
+tokenizers
+huggingface_hub
+scikit-learn
+numpy
+pandas
+scipy
+matplotlib
+seaborn
+openpyxl
+tqdm
+nltk
+spacy          # Stylometric baseline; also run: python -m spacy download en_core_web_sm
+textblob       # Stylometric baseline
+vaderSentiment # Stylometric baseline
+wordfreq       # Stylometric baseline
+textstat       # Stylometric baseline
+tensorflow     # Bi-LSTM + Attention baseline
+datasketch     # near-duplicate audit (MinHash)
