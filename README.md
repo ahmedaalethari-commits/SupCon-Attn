@@ -18,6 +18,9 @@ The detector encodes each sentence with DeBERTa-v3-base trained with a supervise
 
 KUFA is a balanced English corpus of 83,020 documents from seven domains. The source-grouped split contains 66,462 training, 8,275 validation, and 8,283 test documents. All documents that share a `source_id` (a human text and every AI text derived from it) are in the same partition.
 
+The KUFA dataset introduced in this study, with the train, validation, and test files, is publicly available at
+https://huggingface.co/datasets/Ahmed-Alethary/Kufa_Dataset
+
 Columns: text, label (0 = human, 1 = AI), domain, text type, generator, `source_id`.
 
 **Composition of the full corpus**
